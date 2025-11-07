@@ -8,7 +8,7 @@ Pràcticament, des de la fundació de l'Institut Can Puig, els alumnes de primer
 Aquí és on es publiquen les últimes notícies del centre, escrites pels alumnes de primer de Batxillerat.
 
 
-## Quí ho ha fet?
+## Qui ho ha fet?
 
 Tot aquest codi ha estat escrit per dos alumnes de primer de Batxillerat, Joel Marín i Enric Alegria. Si estàs llegint això i no ets cap dels dos, probablement ets un curiós o et toca mantenir el codi (bona sort, la necessitaràs).
 
