@@ -16,3 +16,22 @@ Tot aquest codi ha estat escrit per dos alumnes de primer de Batxillerat, Joel M
 ## Per què s'ha fet?
 
 La revista digital, en un principi era una pàgina feta amb WordPress, amb un disseny poc òptim i un flux de treball encara pitjor. Cada trimestre, s'escollien uns dissenyadors que havien de millorar el disseny i a més a més, afegir manualment cada article que es volia publicar.
+
+
+## Nou tech stack
+
+* **Framework** → [Remix](https://remix.run/)
+* **Llenguatge** → JavaScript
+* **Estils** → CSS tal qual
+* **DB/Auth/Storage** → [Supabase](https://supabase.com/)
+* **Package manager** → [yarn](https://yarnpkg.com/)
+* **Version control** → [Git](https://git-scm.com/)
+
+
+## Prerequisits
+
+Has de tenir tot això instal·lat a la teva màquina:
+
+* [Git](https://git-scm.com/) — Simplement descarrega i executa l'instal·lador (si ets a Windows, si no, probablement ja saps el que estas fent).
+* [Node.js](https://nodejs.org/) — Sempre LTS, recomanada la versió 22. Instal·la igual que el Git.
+* [yarn](https://yarnpkg.com/) — Amb Node ja instal·lat, obre el terminal i escriu `npm install -g corepack`.
