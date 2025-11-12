@@ -140,3 +140,6 @@ vite.config.ts.timestamp-*
 
 # VSCode config
 .vscode
+
+# Build foler
+build
