@@ -1,0 +1,31 @@
+{
+  "name": "alpeudelalletra",
+  "version": "0.0.1",
+  "description": "Codi de la revista web de Can Puig, @lpeudelalletra.",
+  "repository": "https://github.com/DragonMaricon/alpeudelalletra",
+  "license": "All Rights Reserved",
+  "author": "Joel Marín, Enric Alegria",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development node ./server.js",
+    "start": "cross-env NODE_ENV=production node ./server.js",
+    "build": "cross-env NODE_ENV=production npx remix vite:build"
+  },
+  "private": true,
+  "dependencies": {
+    "@remix-run/express": "^2.17.2",
+    "@remix-run/node": "^2.17.2",
+    "@remix-run/react": "^2.17.2",
+    "cross-env": "^10.1.0",
+    "express": "4",
+    "isbot": "4",
+    "react": "18",
+    "react-dom": "18",
+    "remix-themes": "^2.0.4"
+  },
+  "devDependencies": {
+    "@remix-run/dev": "^2.17.2",
+    "vite": "^7.2.2"
+  }
+}
