@@ -21,7 +21,8 @@
     "express": "4",
     "isbot": "4",
     "react": "18",
-    "react-dom": "18"
+    "react-dom": "18",
+    "remix-themes": "^2.0.4"
   },
   "devDependencies": {
     "@remix-run/dev": "^2.17.2",
