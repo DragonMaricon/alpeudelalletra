@@ -11,6 +11,21 @@ import { themeSessionResolver } from "./sessions.server.js";
 import icon from "./img/favicon.svg";
 import baseStylesheet from "./styles/base.css?url";
 
+export function meta() {
+	return [
+		{
+			charset: "utf-8",
+		},
+		{
+			title: "@lpeudelalletra",
+		},
+		{
+			name: "viewport",
+			content: "width=device-width,initial-scale=1",
+		},
+	];
+}
+
 export function links() {
 	return [
 		{
