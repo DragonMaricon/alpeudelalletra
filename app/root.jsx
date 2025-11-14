@@ -7,10 +7,16 @@ import {
 
 import { themeSessionResolver } from "./sessions.server.js";
 
+import icon from "./img/favicon.svg";
 import baseStylesheet from "./styles/base.css?url";
 
 export function links() {
 	return [
+		{
+			rel: "icon",
+			href: icon,
+			type: "image/svg+xml",
+		},
 		{
 			rel: "stylesheet",
 			href: baseStylesheet,
@@ -42,7 +48,6 @@ export function App() {
 	return (
 		<html lang="ca" data-theme={theme ?? ""}>
 			<head>
-				<link rel="icon" href="data:image/x-icon;base64,AA" />
 				<Meta />
 				<PreventFlashOnWrongTheme ssrTheme={Boolean(data.theme)} />
 				<Links />
