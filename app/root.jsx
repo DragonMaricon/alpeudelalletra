@@ -1,4 +1,5 @@
 import { Links, Meta, Outlet, Scripts, useLoaderData } from "@remix-run/react";
+import { Header } from "./components/layout/header.jsx";
 import {
 	ThemeProvider,
 	useTheme,
@@ -34,7 +35,6 @@ export async function loader({ request }) {
 export default function AppWithProviders() {
 	const data = useLoaderData();
 	return (
-		<html>
 		<ThemeProvider specifiedTheme={data.theme} themeAction="/action/set-theme">
 			<App />
 		</ThemeProvider>
@@ -53,7 +53,8 @@ export function App() {
 				<Links />
 			</head>
 			<body>
-				<h1>quiere toto de loca 🫦</h1>
+				<Header />
+
 				<Outlet />
 
 				<Scripts />
