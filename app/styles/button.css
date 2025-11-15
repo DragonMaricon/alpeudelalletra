@@ -1,0 +1,42 @@
+/* For now, only works with IconButton, but will work with Button as soon as that component is actually implemented */
+
+.icon-button {
+    height: 100%;
+    aspect-ratio: 1/1;
+
+    padding: 12px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: var(--corner-radius-lvl-1);
+    border: none;
+
+    background-color: var(--color_accent);
+
+    cursor: pointer;
+
+    transition: all 0.2s ease-in-out;
+}
+
+.icon-button:hover {
+    filter: brightness(1.2);
+
+    box-shadow: 0 0 8px var(--color_shadow);
+
+    transform: scale(1.05);
+}
+
+.icon-button:active {
+    filter: brightness(0.8);
+
+    box-shadow: inset 0 0 8px var(--color_shadow);
+
+    transform: scale(0.95);
+}
+
+.icon-button svg {
+    width: 100%;
+    height: 100%;
+}
