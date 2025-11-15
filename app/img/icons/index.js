@@ -2,4 +2,7 @@ import { IconYt } from "./yt";
 import { IconTwt } from "./twt";
 import { IconFb } from "./fb";
 
-export { IconYt, IconTwt, IconFb };
+import { IconSearch } from "./search";
+import { IconNoFilter } from "./noFilter";
+
+export { IconYt, IconTwt, IconFb, IconSearch, IconNoFilter };
