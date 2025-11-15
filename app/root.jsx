@@ -1,5 +1,5 @@
 import { Links, Meta, Outlet, Scripts, useLoaderData } from "@remix-run/react";
-import { Header } from "./components/layout/header.jsx";
+import { Header, links as headerLinks } from "./components/layout/header.jsx";
 import {
 	ThemeProvider,
 	useTheme,
@@ -37,6 +37,7 @@ export function links() {
 			rel: "stylesheet",
 			href: baseStylesheet,
 		},
+		...headerLinks(),
 	];
 }
 
