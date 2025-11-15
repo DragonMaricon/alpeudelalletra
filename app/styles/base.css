@@ -6,6 +6,8 @@
     --color_bg: #E3E9E9;
     --color_fg: #171C1C;
 
+    --color_shadow: rgba(0, 0, 0, 0.1);
+
     --color_accent: #40BFBF;
     --color_gray: #798686;
 }
@@ -13,6 +15,8 @@
 [data-theme="dark"] {
     --color_bg: #171C1C;
     --color_fg: #E3E9E9;
+
+    --color_shadow: rgba(255, 255, 255, 0.1);
 }
 
 * {
