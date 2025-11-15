@@ -16,6 +16,7 @@
 	gap: 8px;
 
 	padding: 96px 64px 128px 64px;
+	margin-bottom: 16px;
 }
 
 .header::before {
