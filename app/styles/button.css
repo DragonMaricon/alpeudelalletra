@@ -36,6 +36,18 @@
     transform: scale(0.95);
 }
 
+.not-filled {
+    background-color: transparent;
+}
+
+.not-filled:hover {
+    box-shadow: none;
+}
+
+.not-filled:active {
+    box-shadow: none;
+}
+
 .icon-button svg {
     width: 100%;
     height: 100%;
