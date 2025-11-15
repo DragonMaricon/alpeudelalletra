@@ -31,3 +31,7 @@ body {
     background-color: var(--color_bg);
     color: var(--color_fg);
 }
+
+.color-accent {
+    color: var(--color_accent);
+}
