@@ -3,6 +3,8 @@
 :root {
 	--font: "Work Sans", sans-serif;
 
+    --corner-radius-lvl-1: 4px;
+
     --color_bg: #E3E9E9;
     --color_fg: #171C1C;
 
