@@ -1,5 +1,4 @@
 import { Link } from "@remix-run/react";
-import { useTheme } from "remix-themes";
 
 import { TextLogo } from "../../img/textLogo";
 import { IconYt, IconTwt, IconFb } from "../../img/icons/index";
@@ -10,8 +9,6 @@ export function links() {
 }
 
 export function Header() {
-	const [theme] = useTheme();
-
 	return (
 		<div className="header">
 			<Link to="/" className="header-link">
