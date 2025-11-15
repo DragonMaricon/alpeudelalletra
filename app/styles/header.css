@@ -45,10 +45,12 @@
 	transition: all 0.2s ease-in-out;
 }
 
-.header-link:hover {
+.header-link:hover, .header-link:focus-visible {
 	transform: scale(1.05) rotate(0.5deg);
 
     filter: drop-shadow(0 0 16px var(--color_shadow));
+
+	outline: none;
 }
 
 .header-link:active {
@@ -77,14 +79,18 @@
 .header-icon {
     width: 24px;
     height: auto;
-
-    transition: all 0.15s ease-out;
 }
 
-.header-icon:hover {
+.header-icon, .header-icon-container {
+	transition: all 0.15s ease-out;
+}
+
+.header-icon:hover, .header-icon-container:focus-visible {
     transform: scale(1.1);
 
     filter: drop-shadow(0 0 6px var(--color_accent));
+
+	outline: none;
 }
 
 .header-icon:active {
