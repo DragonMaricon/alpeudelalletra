@@ -11,9 +11,9 @@ CREATE TABLE Articles (
   titol VARCHAR(255) NOT NULL,
   contingut_md TEXT NOT NULL,
   data_publicacio TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-  slug VARCHAR(255) UNIQUE,
+  slug VARCHAR(255) UNIQUE NOT NULL,
   imatge_destacada_url VARCHAR(500) NOT NULL,
-  autoria VARCHAR(100)
+  autoria VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE ArticleEtiquetes (
