@@ -1,0 +1,30 @@
+.text-divider {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	gap: 4px;
+
+	width: 100%;
+}
+
+.text-divider-line {
+	flex-grow: 1;
+	height: 0.5px;
+}
+
+.text-divider-text {
+	font-size: 12px;
+	font-weight: 200; /* ExtraLight */
+	text-align: center;
+}
+
+.text-divider-line:first-child {
+	
+    background: linear-gradient(to left, var(--color_gray) 0%, transparent 100%);
+}
+
+.text-divider-line:last-child {
+	background: linear-gradient(to right, var(--color_gray) 0%, transparent 100%);
+}
+
