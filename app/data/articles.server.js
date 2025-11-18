@@ -27,8 +27,7 @@ export async function getArticlesForHomePage() {
         GROUP BY
             a.id, a.titol, a.autoria, a.data_publicacio, a.slug, a.imatge_destacada_url
         ORDER BY
-            a.data_publicacio DESC
-        LIMIT 10;
+            a.data_publicacio DESC;
     `;
 
     try {
