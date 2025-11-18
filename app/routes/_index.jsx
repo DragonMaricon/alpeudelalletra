@@ -43,19 +43,18 @@ export async function loader() {
 export default function Index() {
 	const { etiquetes, articles } = useLoaderData();
 
-	const groupedArticles = groupArticles(articles);
-	const { thisYear, otherYears, totalResultsThisYear, totalResultsOtherYears } =
-		groupedArticles;
-	const quartersInOrder = ["1r trimestre", "2n trimestre", "3r trimestre"];
+	// const groupedArticles = groupArticles(articles);
+	// const { thisYear, otherYears, totalResultsThisYear, totalResultsOtherYears } = groupedArticles;
+	// const quartersInOrder = ["1r trimestre", "2n trimestre", "3r trimestre"];
 
-	console.log(groupedArticles);
+	// console.log(groupedArticles);
 
-	const [searchInputValue, setSearchInputValue] = useState("");
+	// const [searchInputValue, setSearchInputValue] = useState("");
 
-	const [selectedTags, setSelectedTags] = useState([]);
-	const [tagInputValue, setTagInputValue] = useState("");
+	// const [selectedTags, setSelectedTags] = useState([]);
+	// const [tagInputValue, setTagInputValue] = useState("");
 
-	const filtersApplied = false;
+	// const filtersApplied = false;
 
 	return (
 		<div className="index">
@@ -69,6 +68,8 @@ export default function Index() {
 				</p>
 			</div>
 			<div className="index-content">
+				{/* Cut out bc I have no time */}
+				{/*
 				<div className="index-content-search">
 					<div className="index-content-search-inputs">
 						<input
@@ -88,6 +89,9 @@ export default function Index() {
 						<IconNoFilter />
 					</IconButton>
 				</div>
+                */}
+				{/* Replaced with a simplified version because I have no time */}
+				{/*
 				<div className="index-content-articles">
 					<div className="index-content-articles-title">
 						<p className="title">Articles d'aquest any</p>
@@ -116,6 +120,26 @@ export default function Index() {
 						return null;
 					})}
 				</div>
+                */}
+				<div className="index-content-articles">
+					<div className="index-content-articles-title">
+						<p className="title">Articles d'aquest any</p>
+						<p className="resultats-n">
+							Mostrant tots els resultats ({articles.length})
+						</p>
+					</div>
+                    <div className="quarter-section">
+                        <TextDivider text="1r trimestre" />
+
+                        <div className="articles-grid">
+                            {articles.map((article) => (
+                                <Card key={article.id} article={article} />
+                            ))}
+                        </div>
+                    </div>
+				</div>
+				{/* Also cut out */}
+				{/*
 				<div className="index-content-articles">
 					<div className="index-content-articles-title">
 						<p className="title">Articles d'altres anys</p>
@@ -126,6 +150,7 @@ export default function Index() {
 						</p>
 					</div>
 				</div>
+                */}
 			</div>
 		</div>
 	);
