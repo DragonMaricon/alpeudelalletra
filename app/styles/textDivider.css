@@ -28,3 +28,8 @@
 	background: linear-gradient(to right, var(--color_gray) 0%, transparent 100%);
 }
 
+@media (max-width: 1024px) {
+	.text-divider-text {
+		font-size: 11.5px;
+	}
+}
