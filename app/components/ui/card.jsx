@@ -26,10 +26,8 @@ export function Card(props) {
 	);
 
 	return (
-		<div className="card">
-			<Link to={`/article/${props.article.slug}`}>
-				<img src={props.article.imatge_destacada_url} />
-			</Link>
+		<Link to={`/articles/${props.article.slug}`} className="card">
+			<img src={props.article.imatge_destacada_url} />
 			<div className="card-info">
 				<p className="card-info-title">{props.article.titol}</p>
 				<div className="card-info-meta">
@@ -40,13 +38,13 @@ export function Card(props) {
 				</div>
                 <div className="card-info-tags">
                     {props.article.etiquetes.map((etiqueta) => {
-                        return <Tag name={etiqueta.nom} hue={etiqueta.color_hue} />;
+                        return <Tag key={etiqueta.nom} name={etiqueta.nom} hue={etiqueta.color_hue} />;
                     })}
                 </div>
-				<Link to={`/article/${props.article.slug}`} className="card-info-link">
+				<p className="card-info-link">
 					Continuar llegint →
-				</Link>
+				</p>
 			</div>
-		</div>
+		</Link>
 	);
 }
