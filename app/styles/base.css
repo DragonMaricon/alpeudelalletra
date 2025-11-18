@@ -3,8 +3,13 @@
 :root {
 	--font: "Work Sans", sans-serif;
 
+    --corner-radius-lvl-1: 8px;
+    --corner-radius-lvl-2: 4px;
+
     --color_bg: #E3E9E9;
     --color_fg: #171C1C;
+
+    --color_shadow: rgba(0, 0, 0, 0.1);
 
     --color_accent: #40BFBF;
     --color_gray: #798686;
@@ -13,6 +18,8 @@
 [data-theme="dark"] {
     --color_bg: #171C1C;
     --color_fg: #E3E9E9;
+
+    --color_shadow: rgba(255, 255, 255, 0.1);
 }
 
 * {
@@ -26,4 +33,8 @@ body {
 
     background-color: var(--color_bg);
     color: var(--color_fg);
+}
+
+.color-accent {
+    color: var(--color_accent);
 }

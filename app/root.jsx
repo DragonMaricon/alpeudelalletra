@@ -1,5 +1,5 @@
 import { Links, Meta, Outlet, Scripts, useLoaderData } from "@remix-run/react";
-import { Header } from "./components/layout/header.jsx";
+import { Header, links as headerLinks } from "./components/layout/header.jsx";
 import {
 	ThemeProvider,
 	useTheme,
@@ -26,6 +26,8 @@ export function meta() {
 	];
 }
 
+import articleStylesheet from "./styles/article.css?url";
+
 export function links() {
 	return [
 		{
@@ -37,6 +39,11 @@ export function links() {
 			rel: "stylesheet",
 			href: baseStylesheet,
 		},
+		{
+			rel: "stylesheet",
+			href: articleStylesheet,
+		},
+		...headerLinks(),
 	];
 }
 
