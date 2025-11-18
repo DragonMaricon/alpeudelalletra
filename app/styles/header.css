@@ -16,6 +16,7 @@
 	gap: 8px;
 
 	padding: 96px 64px 128px 64px;
+	margin-bottom: 16px;
 }
 
 .header::before {
@@ -31,6 +32,12 @@
 		transparent 34px
 	);
 
+
+	--webkit-mask-image: linear-gradient(
+		to bottom,
+		rgba(0, 0, 0, 1),
+		rgba(0, 0, 0, 0) 95%
+	);
 	mask-image: linear-gradient(
 		to bottom,
 		rgba(0, 0, 0, 1),
@@ -44,10 +51,12 @@
 	transition: all 0.2s ease-in-out;
 }
 
-.header-link:hover {
+.header-link:hover, .header-link:focus-visible {
 	transform: scale(1.05) rotate(0.5deg);
 
     filter: drop-shadow(0 0 16px var(--color_shadow));
+
+	outline: none;
 }
 
 .header-link:active {
@@ -76,14 +85,18 @@
 .header-icon {
     width: 24px;
     height: auto;
-
-    transition: all 0.15s ease-out;
 }
 
-.header-icon:hover {
+.header-icon, .header-icon-container {
+	transition: all 0.15s ease-out;
+}
+
+.header-icon:hover, .header-icon-container:focus-visible {
     transform: scale(1.1);
 
     filter: drop-shadow(0 0 6px var(--color_accent));
+
+	outline: none;
 }
 
 .header-icon:active {

@@ -3,6 +3,9 @@
 :root {
 	--font: "Work Sans", sans-serif;
 
+    --corner-radius-lvl-1: 8px;
+    --corner-radius-lvl-2: 4px;
+
     --color_bg: #E3E9E9;
     --color_fg: #171C1C;
 
@@ -30,4 +33,8 @@ body {
 
     background-color: var(--color_bg);
     color: var(--color_fg);
+}
+
+.color-accent {
+    color: var(--color_accent);
 }

@@ -1,5 +1,4 @@
 import { Link } from "@remix-run/react";
-import { useTheme } from "remix-themes";
 
 import { TextLogo } from "../../img/textLogo";
 import { IconYt, IconTwt, IconFb } from "../../img/icons/index";
@@ -10,19 +9,18 @@ export function links() {
 }
 
 export function Header() {
-	const [theme] = useTheme();
-
 	return (
-		<div className="header">
+		<div className="header" role="banner">
 			<Link to="/" className="header-link">
 				<TextLogo className="header-text-logo" />
 			</Link>
-			<div className="header-socials">
+			<nav className="header-socials" aria-label="Xarxes socials">
 				<a
 					href="https://www.youtube.com/channel/UCBs4Uk_a2pTjUtvc5lPCdGw"
 					target="_blank"
 					rel="noopener noreferrer"
 					className="header-icon-container"
+					aria-label="Visita el nostre canal de YouTube (s'obrirà una nova pestanya)"
 				>
 					<IconYt className="header-icon" />
 				</a>
@@ -35,10 +33,11 @@ export function Header() {
 					target="_blank"
 					rel="noopener noreferrer"
 					className="header-icon-container"
+					aria-label="Visita la nostra pàgina de Facebook (s'obrirà una nova pestanya)"
 				>
 					<IconFb className="header-icon" />
 				</a>
-			</div>
+			</nav>
 		</div>
 	);
 }

@@ -26,6 +26,8 @@ export function meta() {
 	];
 }
 
+import articleStylesheet from "./styles/article.css?url";
+
 export function links() {
 	return [
 		{
@@ -36,6 +38,10 @@ export function links() {
 		{
 			rel: "stylesheet",
 			href: baseStylesheet,
+		},
+		{
+			rel: "stylesheet",
+			href: articleStylesheet,
 		},
 		...headerLinks(),
 	];
