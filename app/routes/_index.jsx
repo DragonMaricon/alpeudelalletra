@@ -64,7 +64,7 @@ export default function Index() {
 				</p>
 				<p className="index-info-text">
 					La revista web de l’Institut Can Puig, amb les notícies més fresques,
-					gestionat pels alumnes de Cultura Audiovisual de 1r de batxillerat.
+					gestionada pels alumnes de Cultura Audiovisual de 1r de batxillerat.
 				</p>
 			</div>
 			<div className="index-content">
