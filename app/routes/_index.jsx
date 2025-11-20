@@ -63,8 +63,8 @@ export default function Index() {
 					Benvinguts/des a <span className="color-accent">@lpeudelalletra</span>
 				</p>
 				<p className="index-info-text">
-					La revista web de l’Institut Can Puig, amb les notícies més fresques
-					dels alumnes de Cultura Audiovisual de 1r de batxillerat.
+					La revista web de l’Institut Can Puig, amb les notícies més fresques,
+					gestionat pels alumnes de Cultura Audiovisual de 1r de batxillerat.
 				</p>
 			</div>
 			<div className="index-content">
