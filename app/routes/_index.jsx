@@ -63,8 +63,8 @@ export default function Index() {
 					Benvinguts/des a <span className="color-accent">@lpeudelalletra</span>
 				</p>
 				<p className="index-info-text">
-					La revista web de l’Institut Can Puig, amb les notícies més fresques
-					dels alumnes de Cultura Audiovisual de 1r de batxillerat.
+					La revista web de l’Institut Can Puig, amb les notícies més fresques,
+					gestionada pels alumnes de Cultura Audiovisual de 1r de batxillerat.
 				</p>
 			</div>
 			<div className="index-content">
@@ -128,15 +128,15 @@ export default function Index() {
 							Mostrant tots els resultats ({articles.length})
 						</p>
 					</div>
-                    <div className="quarter-section">
-                        <TextDivider text="1r trimestre" />
+					<div className="quarter-section">
+						<TextDivider text="1r trimestre" />
 
-                        <div className="articles-grid">
-                            {articles.map((article) => (
-                                <Card key={article.id} article={article} />
-                            ))}
-                        </div>
-                    </div>
+						<div className="articles-grid">
+							{articles.map((article) => (
+								<Card key={article.id} article={article} />
+							))}
+						</div>
+					</div>
 				</div>
 				{/* Also cut out */}
 				{/*

@@ -1,7 +1,7 @@
 import { Link } from "@remix-run/react";
 
 import { TextLogo } from "../../img/textLogo";
-import { IconYt, IconTwt, IconFb } from "../../img/icons/index";
+import { IconYt, IconIg, IconFb } from "../../img/icons/index";
 import headerStylesheet from "../../styles/header.css?url";
 
 export function links() {
@@ -24,9 +24,14 @@ export function Header() {
 				>
 					<IconYt className="header-icon" />
 				</a>
-				{/* TODO -> Hay que poner el link de Twt o de otra red social */}
-				<a href="#" className="header-icon-container">
-					<IconTwt className="header-icon" />
+				<a
+					href="https://www.instagram.com/inscanpuig"
+					target="_blank"
+					rel="noopener noreferrer"
+					className="header-icon-container"
+					aria-label="Visita la nostra pàgina de Instagram (s'obrirà una nova pestanya)"
+				>
+					<IconIg className="header-icon" />
 				</a>
 				<a
 					href="https://www.facebook.com/iescanpuig/"
