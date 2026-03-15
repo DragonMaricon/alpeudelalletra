@@ -2,7 +2,7 @@ import { useState } from "react";
 import { json, useLoaderData } from "@remix-run/react";
 import { getAllEtiquetes } from "../data/etiquetes.server";
 import { getArticlesForHomePage } from "../data/articles.server";
-import groupArticles from "../helper/groupArticles";
+import getArticlePeriod from "../helper/getArticlePeriod";
 
 import {
 	IconButton,
@@ -43,11 +43,31 @@ export async function loader() {
 export default function Index() {
 	const { etiquetes, articles } = useLoaderData();
 
-	// const groupedArticles = groupArticles(articles);
-	// const { thisYear, otherYears, totalResultsThisYear, totalResultsOtherYears } = groupedArticles;
-	// const quartersInOrder = ["1r trimestre", "2n trimestre", "3r trimestre"];
+	const quartersInOrder = ["1r trimestre", "2n trimestre", "3r trimestre"].reverse(); // Reverse to show the most recent quarter first
 
-	// console.log(groupedArticles);
+	// Group articles by period and quarter
+	const thisYear = {
+		"1r trimestre": [],
+		"2n trimestre": [],
+		"3r trimestre": [],
+	};
+	const otherYears = [];
+	let totalResultsThisYear = 0;
+	let totalResultsOtherYears = 0;
+
+	for (const article of articles) {
+		article.period = getArticlePeriod(new Date(article.data_publicacio));
+		if (article.period === "Altre any") {
+			otherYears.push(article);
+			totalResultsOtherYears++;
+		} else if (quartersInOrder.includes(article.period)) {
+			thisYear[article.period].push(article);
+			totalResultsThisYear++;
+		}
+	}
+
+	// console.log(thisYear);
+	// console.log(otherYears);
 
 	// const [searchInputValue, setSearchInputValue] = useState("");
 
@@ -90,16 +110,17 @@ export default function Index() {
 					</IconButton>
 				</div>
                 */}
-				{/* Replaced with a simplified version because I have no time */}
-				{/*
 				<div className="index-content-articles">
 					<div className="index-content-articles-title">
 						<p className="title">Articles d'aquest any</p>
+						{/* Cut out for now */}
+						{/*
 						<p className="resultats-n">
 							{filtersApplied
 								? `Mostrant ${totalResultsThisYear} resultats`
 								: `Mostrant tots els resultats (${totalResultsThisYear})`}
 						</p>
+						*/}
 					</div>
 					{quartersInOrder.map((quarterName) => {
 						const quarterArticles = thisYear[quarterName];
@@ -119,24 +140,6 @@ export default function Index() {
 						}
 						return null;
 					})}
-				</div>
-                */}
-				<div className="index-content-articles">
-					<div className="index-content-articles-title">
-						<p className="title">Articles d'aquest any</p>
-						<p className="resultats-n">
-							Mostrant tots els resultats ({articles.length})
-						</p>
-					</div>
-					<div className="quarter-section">
-						<TextDivider text="1r trimestre" />
-
-						<div className="articles-grid">
-							{articles.map((article) => (
-								<Card key={article.id} article={article} />
-							))}
-						</div>
-					</div>
 				</div>
 				{/* Also cut out */}
 				{/*
