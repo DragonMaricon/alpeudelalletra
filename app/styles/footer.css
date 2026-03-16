@@ -1,0 +1,152 @@
+:root {
+    --footer_bg: #c7d1d1;
+}
+
+[data-theme="dark"] {
+	--footer_bg: #2e3838;
+}
+
+.footer {
+    position: relative;
+
+    color: var(--color_text);
+
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+    padding: 80px 48px;
+
+    border-top: var(--color_accent) 1px solid;
+}
+
+.footer::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-color: var(--footer_bg);
+
+    --webkit-mask-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 1),
+        rgba(0, 0, 0, 0) 95%
+    );
+    mask-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 1),
+        rgba(0, 0, 0, 0) 95%
+    );
+
+    z-index: -1;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: row;
+    gap: 128px;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-logo {
+    width: 96px;
+    height: 96px;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: row;
+    gap: 64px;
+}
+
+.footer-links p {
+    font-size: 18px;
+    font-weight: 600; /* semi-bold */
+}
+
+.footer-links-stuff {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+p a {
+    cursor: pointer;
+
+    text-decoration: wavy underline var(--color_accent);
+    color: var(--color_accent);
+
+    transition: all 0.2s ease-in-out;
+}
+
+.footer-links-stuff a {
+    font-size: 14px;
+    font-weight: 300; /* light */
+
+    cursor: pointer;
+
+    display: flex;
+    flex-direction: row;
+    gap: 6px;
+
+    align-items: center;
+
+    text-decoration: wavy underline var(--color_accent);
+    color: var(--color_accent);
+
+    transition: all 0.2s ease-in-out;
+}
+
+.footer-links-stuff a:hover, p a:hover {
+    transform: scale(1.05) rotate(0.1deg);
+
+    filter: drop-shadow(0 0 2px var(--color_accent));
+}
+
+.footer-icon {
+    width: 16px;
+    height: auto;
+
+    filter: brightness(0) saturate(100%) invert(91%) sepia(37%) saturate(1131%) hue-rotate(138deg) brightness(81%) contrast(81%);
+}
+
+.footer-credits {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    align-items: center;
+    text-align: center;
+}
+
+.footer-text-logo {
+    width: 256px;
+    height: auto;
+}
+
+.footer-link {
+    transition: all 0.2s ease-in-out;
+}
+
+.footer-link:hover {
+	transform: scale(1.05) rotate(0.5deg);
+
+    filter: drop-shadow(0 0 16px var(--color_shadow));
+
+	outline: none;
+}
+
+.footer-blinkies {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-blinkies img {
+    height: 24px;
+    width: auto;
+}

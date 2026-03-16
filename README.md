@@ -10,7 +10,7 @@ Aquí és on es publiquen les últimes notícies del centre, escrites pels alumn
 
 ## Qui ho ha fet?
 
-Tot aquest codi ha estat escrit per dos alumnes de primer de Batxillerat, Joel Marín i Enric Alegria. Si estàs llegint això i no ets cap dels dos, probablement ets un curiós o et toca mantenir el codi (bona sort, la necessitaràs).
+Tot aquest codi ha estat escrit per un alumnes de primer de Batxillerat, Joel Marín. Si estàs llegint això i no ets jo, probablement ets un curiós o et toca mantenir el codi (bona sort, la necessitaràs).
 
 
 ## Per què s'ha fet?
@@ -76,6 +76,8 @@ yarn start
 
 Per tant, per executar el codi mentre desenvolupes, fes servir `yarn dev` per veure els canvis en temps real, i quan l'executis a producció, compila primer amb `yarn build`, i després executa amb `yarn start`. Tingués en compte que la pàgina compilada no se'n puja al repositori remot (GitHub).
 
+No oblidis que perquè la pàgina funcioni, has de tenir les variables d'entorn configurades (copia el fitxer `.env.example` a `.env` i modifica els valors).
+
 NO editis el codi directament a la branca `main`, i tracta de no fer-ho tampoc a `dev`. Més informació endavant.
 
 
@@ -135,11 +137,13 @@ git push -u origin nom-de-la-teva-branca
    1. Explica què has canviat i per què.
    2. No facis _merge_ fins que algú més (idealment Joel o una persona amb dos dits de front) ho revisi.
 
+(Ignora el fet que m'estic passant els meus consells per on no il·lumina el sol i l'historial de commits és un desastre.)
+
 ### Bones pràctiques
 
 * Fes _pull_ de `dev` abans de començar a treballar.
 * No deixis codi comentat sense motiu.
-* No facis _commit_ de fitxers de configuració locals o merda de l’editor (`.vscode`, `.env`, `node_modules`, etc). L'arxiu `.gitignore` s'assegura de que no s'afegeixen, però assegura't igualment.
+* No facis _commit_ de fitxers de configuracions locals o merda de l’editor (`.vscode`, `.env`, `node_modules`, etc). L'arxiu `.gitignore` s'assegura de que no s'afegeixen, però assegura't igualment.
 * Si es trenca alguna cosa, revert i demana ajuda abans de fer més mal.
 * Formata el codi abans de publicar-lo.
 
