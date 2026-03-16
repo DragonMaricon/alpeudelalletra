@@ -1,5 +1,6 @@
 import { Links, Meta, Outlet, Scripts, useLoaderData } from "@remix-run/react";
 import { Header, links as headerLinks } from "./components/layout/header.jsx";
+import { Footer, links as footerLinks } from "./components/layout/footer.jsx";
 import {
 	ThemeProvider,
 	useTheme,
@@ -44,6 +45,7 @@ export function links() {
 			href: articleStylesheet,
 		},
 		...headerLinks(),
+		...footerLinks(),
 	];
 }
 
@@ -78,6 +80,8 @@ export function App() {
 				<Header />
 
 				<Outlet />
+
+				<Footer />
 
 				<Scripts />
 			</body>
