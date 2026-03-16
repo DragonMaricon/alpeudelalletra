@@ -6,4 +6,12 @@
     padding: 4px 8px 4px 8px;
     
     border-radius: 6px;
+
+    background-color: hsl(var(--tag-hue), 80%, 75%);
+    color: hsl(var(--tag-hue), 90%, 25%);
+}
+
+[data-theme="dark"] .tag {
+    background-color: hsl(var(--tag-hue), 60%, 35%);
+    color: hsl(var(--tag-hue), 90%, 70%);
 }
