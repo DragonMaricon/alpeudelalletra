@@ -121,6 +121,17 @@
     gap: 12px;
 }
 
+.no-articles-message {
+    font-size: 20px;
+    font-weight: 300; /* Light */
+    font-style: italic;
+    
+    color: var(--color_gray);
+
+    margin-top: 64px;
+    margin-bottom: 64px;
+}
+
 @media (max-width: 1024px) {
     .index {
         margin: 0 32px 32px;
@@ -140,6 +151,13 @@
 
     .index-content-articles-title .resultats-n {
         font-size: 13px;
+    }
+
+    .no-articles-message {
+        font-size: 18px;
+
+        margin-top: 4px;
+        margin-bottom: 24px;
     }
 
     .articles-grid {
