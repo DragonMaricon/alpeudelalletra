@@ -77,12 +77,8 @@ export function App() {
 				<Links />
 			</head>
 			<body>
-				<Header />
-
 				<Outlet />
-
-				<Footer />
-
+				
 				<Scripts />
 			</body>
 		</html>
