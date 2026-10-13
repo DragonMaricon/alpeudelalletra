@@ -1,5 +1,4 @@
 import { createCookieSessionStorage, redirect } from "@remix-run/node";
-import { validateAccessCode } from "~/helper/accessCode.server";
 
 const authSessionStorage = createCookieSessionStorage({
 	cookie: {
