@@ -1,0 +1,62 @@
+.header_small {
+    position: sticky;
+    top: 0;
+
+	display: flex;
+	align-items: space-between;
+	justify-content: center;
+    flex-direction: row;
+
+	padding: 32px 64px 32px 64px;
+	margin-bottom: 16px;
+}
+
+.header_small::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-color: var(--footer_bg);
+
+    --webkit-mask-image:
+        linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 1),
+            rgba(0, 0, 0, 0) 99%
+        ),
+        linear-gradient(
+            to right,
+            rgba(0, 0, 0, 1),
+            rgba(0, 0, 0, 0) 99%
+        ),
+        linear-gradient(
+            to left,
+            rgba(0, 0, 0, 1),
+            rgba(0, 0, 0, 0) 99%
+        );
+    mask-image:
+        linear-gradient(
+        to bottom,
+            rgba(0, 0, 0, 1),
+            rgba(0, 0, 0, 0) 99%
+        ),
+        linear-gradient(
+            to right,
+            rgba(0, 0, 0, 1),
+            rgba(0, 0, 0, 0) 99%
+        ),
+        linear-gradient(
+            to left,
+            rgba(0, 0, 0, 1),
+            rgba(0, 0, 0, 0) 99%
+        );
+
+    mask-composite: intersect;
+
+    z-index: -1;
+}
+
+.header_small-text-logo {
+    height: 32px;
+    width: auto;
+}
