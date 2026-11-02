@@ -32,7 +32,7 @@ export function Footer() {
 								Pàgina web de l'IES Can Puig
 							</Link>
 							<Link to="/contacte">Pàgina de contacte</Link>
-							<Link to="/admin">Pàgina d'administració</Link>
+							<Link to="/admin" reloadDocument>Pàgina d'administració</Link>
 						</div>
 					</div>
 					<div className="footer-links-column">

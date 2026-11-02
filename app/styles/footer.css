@@ -17,6 +17,8 @@
     padding: 80px 48px;
 
     border-top: var(--color_accent) 1px solid;
+
+    margin-top: 96px;
 }
 
 .footer::before {
@@ -149,4 +151,41 @@ p a {
 .footer-blinkies img {
     height: 24px;
     width: auto;
+}
+
+@media (max-width: 1024px) {
+    .footer {
+        gap: 96px;
+        padding: 64px 32px;
+
+        margin-top: 64px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 64px;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 32px;
+    }
+
+    .footer-credits {
+        gap: 32px;
+    }
+
+    .footer-credits-text {
+        font-size: 12px;
+    }
+
+    .footer-logo {
+        width: max-content;
+        height: auto;
+    }
+
+    .footer-blinkies {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
 }

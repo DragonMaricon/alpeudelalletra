@@ -1,0 +1,173 @@
+.admin-login {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 10%;
+}
+
+.admin-login-card {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    padding: 32px;
+
+    width: 40%;
+
+    border-radius: var(--corner-radius-lvl-1);
+    background-color: var(--color_bg);
+    box-shadow: 0 2.5px 16px var(--color_shadow);
+}
+
+.admin-login-card h1 {
+    margin: 0;
+    padding: 0;
+
+    font-size: 24px;
+    font-weight: 600;
+    text-align: left;
+}
+
+.admin-login-tabs-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+
+    width: 100%;
+
+    padding: 4px;
+
+    background-color: var(--color_gray);
+    border-radius: var(--corner-radius-lvl-2);
+}
+
+.admin-login-tabs-header button, .submit-button {
+    flex: 1;
+
+    padding: 8px 16px;
+
+    border: none;
+    border-radius: var(--corner-radius-lvl-3);
+    background-color: var(--color_gray);
+    color: var(--color_fg);
+
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease-in-out;
+}
+
+.submit-button {
+    background-color: var(--color_accent);
+    color: var(--color_bg);
+
+    border-radius: var(--corner-radius-lvl-2);
+}
+
+.admin-login-tabs-header button.active {
+    background-color: var(--color_accent);
+    color: var(--color_bg);
+}
+
+.admin-login-tabs-header button:hover, .submit-button:hover, .admin-login-tabs-header button:focus, .submit-button:focus {
+    filter: brightness(0.8);
+    transform: scale(1.01);
+
+    outline: none;
+}
+
+.admin-login-tabs-header button:active, .submit-button:active {
+    filter: brightness(0.6);
+    transform: scale(0.99);
+}
+
+.admin-login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.code-inputs {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+
+    width: 100%;
+}
+
+.code-inputs input, .field input {
+    text-align: center;
+
+    flex: 1;
+
+    padding: 8px 16px;
+
+    border: none;
+    border-radius: var(--corner-radius-lvl-2);
+    background-color: var(--color_gray);
+    color: var(--color_fg);
+
+    transition: all 0.2s ease-in-out;
+}
+
+.code-inputs input:hover, .field input:hover {
+    filter: brightness(0.8);
+    transform: scale(1.01);
+}
+
+.code-inputs input:focus, .field input:focus {
+    outline: none;
+    filter: brightness(0.6);
+    transform: scale(1.025);
+}
+
+.code-inputs p {
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+
+    color: var(--color_fg);
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.field input:hover {
+    transform: scale(1.005);
+}
+
+.field input:focus {
+    transform: scale(1.01);
+}
+
+@media (max-width: 1024px) {
+    .admin-login-card {
+        width: 90%;
+    }
+
+    .code-inputs {
+        flex-direction: column;
+    }
+
+    .code-inputs p {
+        display: none;
+    }
+}
+
+@media (max-width: 512px) {
+    .admin-login-card {
+        width: 95%;
+    }
+}

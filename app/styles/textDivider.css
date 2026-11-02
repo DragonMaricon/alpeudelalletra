@@ -6,11 +6,14 @@
 	gap: 4px;
 
 	width: 100%;
+
+	margin-top: 32px;
+	margin-bottom: 16px;
 }
 
 .text-divider-line {
 	flex-grow: 1;
-	height: 0.5px;
+	height: 0.8px;
 }
 
 .text-divider-text {
@@ -20,7 +23,6 @@
 }
 
 .text-divider-line:first-child {
-	
     background: linear-gradient(to left, var(--color_gray) 0%, transparent 100%);
 }
 

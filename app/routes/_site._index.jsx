@@ -122,24 +122,32 @@ export default function Index() {
 						</p>
 						*/}
 					</div>
-					{quartersInOrder.map((quarterName) => {
-						const quarterArticles = thisYear[quarterName];
+					{
+						totalResultsThisYear > 0 ? (
+							quartersInOrder.map((quarterName) => {
+								const quarterArticles = thisYear[quarterName];
 
-						if (quarterArticles && quarterArticles.length > 0) {
-							return (
-								<div key={quarterName} className="quarter-section">
-									<TextDivider text={quarterName} />
+								if (quarterArticles && quarterArticles.length > 0) {
+									return (
+										<div key={quarterName} className="quarter-section">
+											<TextDivider text={quarterName} />
 
-									<div className="articles-grid">
-										{quarterArticles.map((article) => (
-											<Card key={article.id} article={article} />
-										))}
-									</div>
-								</div>
-							);
-						}
-						return null;
-					})}
+											<div className="articles-grid">
+												{quarterArticles.map((article) => (
+													<Card key={article.id} article={article} />
+												))}
+											</div>
+										</div>
+									);
+								}
+								return null;
+							})
+						) : (
+							<div className="no-articles-message">
+								<p>Encara no n'hi ha articles publicats aquest any!</p>
+							</div>
+						)
+					}
 				</div>
 				{/* Also cut out */}
 				{/*
