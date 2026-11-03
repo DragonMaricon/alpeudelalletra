@@ -1,4 +1,13 @@
-import { Links, Meta, Outlet, Scripts, useLoaderData } from "@remix-run/react";
+import {
+	Links,
+	Meta,
+	Outlet,
+	Scripts,
+	isRouteErrorResponse,
+	useLoaderData,
+	useRouteError,
+	Link,
+} from "@remix-run/react";
 import { Header, links as headerLinks } from "./components/layout/header.jsx";
 import { Footer, links as footerLinks } from "./components/layout/footer.jsx";
 import {
@@ -11,6 +20,7 @@ import { themeSessionResolver } from "./sessions.server.js";
 
 import icon from "./img/favicon.svg";
 import baseStylesheet from "./styles/base.css?url";
+import errorStylesheet from "./styles/error.css?url";
 
 export function meta() {
 	return [
@@ -43,6 +53,10 @@ export function links() {
 		{
 			rel: "stylesheet",
 			href: articleStylesheet,
+		},
+		{
+			rel: "stylesheet",
+			href: errorStylesheet,
 		},
 		...headerLinks(),
 		...footerLinks(),
@@ -79,6 +93,35 @@ export function App() {
 			<body>
 				<Outlet />
 				
+				<Scripts />
+			</body>
+		</html>
+	);
+}
+
+export function ErrorBoundary() {
+	const error = useRouteError();
+	const status = isRouteErrorResponse(error) ? error.status : 500;
+	const notFound = status === 404;
+
+	// antes remix mostraba su error genérico; ahora damos una página propia y un enlace para volver a la portada
+	return (
+		<html lang="ca">
+			<head>
+				<Meta />
+				<Links />
+			</head>
+			<body>
+				<main className="error-page">
+					<p className="error-status">{status}</p>
+					<h1>{notFound ? "Aquesta pàgina no existeix" : "S'ha produït un error"}</h1>
+					<p>
+						{notFound
+							? "Potser l'enllaç és antic o l'adreça no és correcta."
+							: "No hem pogut carregar la pàgina. Torna-ho a provar més tard."}
+					</p>
+					<Link to="/">Torna a l'inici</Link>
+				</main>
 				<Scripts />
 			</body>
 		</html>

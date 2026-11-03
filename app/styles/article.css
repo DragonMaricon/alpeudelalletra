@@ -31,3 +31,82 @@
   display: block;
   margin: 1rem auto;
 }
+
+/* antes el markdown se veía sin adaptar; estos estilos separan títulos, código y citas para que los artículos se lean mejor */
+.article-content h2,
+.article-content h3 {
+  margin-top: 2rem;
+}
+
+.article-content pre {
+  overflow-x: auto;
+  padding: 1rem;
+  border-radius: var(--corner-radius-lvl-1);
+  background: var(--color_shadow);
+}
+
+.article-content blockquote {
+  margin-left: 0;
+  padding-left: 1rem;
+  border-left: 3px solid var(--color_accent);
+  color: var(--color_gray);
+}
+
+.article-comments {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--color_gray);
+}
+
+.comment-list {
+  display: grid;
+  gap: 1rem;
+  padding: 0;
+  list-style: none;
+}
+
+.comment {
+  padding: 1rem;
+  border-radius: var(--corner-radius-lvl-1);
+  background: var(--color_shadow);
+}
+
+.comment p {
+  white-space: pre-wrap;
+}
+
+.comment-author {
+  margin-bottom: 0;
+  font-weight: 700;
+}
+
+.comment time {
+  color: var(--color_gray);
+  font-size: 0.875rem;
+}
+
+.comment-form {
+  display: grid;
+  gap: 0.5rem;
+  max-width: 36rem;
+}
+
+.comment-form input,
+.comment-form textarea {
+  width: 100%;
+  padding: 0.75rem;
+}
+
+.comment-form button {
+  justify-self: start;
+  padding: 0.75rem 1rem;
+  border: 0;
+  border-radius: var(--corner-radius-lvl-1);
+  background: var(--color_accent);
+  color: var(--color_fg);
+  cursor: pointer;
+}
+
+.comment-error {
+  color: #b42318;
+}

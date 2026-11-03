@@ -1,19 +1,13 @@
-import { useState } from "react";
-import { json, useLoaderData } from "@remix-run/react";
-import { getAllEtiquetes } from "../data/etiquetes.server";
+import { json } from "@remix-run/node";
+import { Form, Link, useLoaderData } from "@remix-run/react";
 import { getArticlesForHomePage } from "../data/articles.server";
 import getArticlePeriod from "../helper/getArticlePeriod";
 
-import {
-	IconButton,
-	links as iconButtonLinks,
-} from "../components/ui/iconButton";
 import {
 	TextDivider,
 	links as textDividerLinks,
 } from "../components/ui/textDivider";
 import { Card, links as cardLinks } from "../components/ui/card";
-import { IconSearch, IconNoFilter } from "../img/icons";
 
 import indexStylesheet from "../styles/index.css?url";
 
@@ -23,58 +17,42 @@ export function links() {
 			rel: "stylesheet",
 			href: indexStylesheet,
 		},
-		...iconButtonLinks(),
 		...textDividerLinks(),
 		...cardLinks(),
 	];
 }
 
-export async function loader() {
-	const [etiquetes, articles] = await Promise.all([
-		getAllEtiquetes(),
-		getArticlesForHomePage(),
-	]);
+export async function loader({ request }) {
+	const url = new URL(request.url);
+	// se limita la consulta antes de mandarla a postgres para evitar búsquedas enormes desde la url
+	const search = (url.searchParams.get("q") || "").trim().slice(0, 100);
 
-	return json({ etiquetes, articles });
+	// antes la búsqueda estaba comentada y no funcionaba; ahora consulta en servidor títulos y contenido de cualquier año
+	const articles = await getArticlesForHomePage(search);
+	return json({ articles, search });
 }
 
-// Se que hay muchas cosas que podrían ir en su propio componente, pero me da pereza y no tengo tiempo. De todas formas no van a estar en ninguna de las otras paginas, asi que no es un problema.
-
 export default function Index() {
-	const { etiquetes, articles } = useLoaderData();
+	const { articles, search } = useLoaderData();
 
-	const quartersInOrder = ["1r trimestre", "2n trimestre", "3r trimestre"].reverse(); // Reverse to show the most recent quarter first
+	// se mantiene el orden trimestral de antes, mostrando primero el trimestre más reciente
+	const quartersInOrder = ["1r trimestre", "2n trimestre", "3r trimestre"].reverse();
 
-	// Group articles by period and quarter
+	// sin búsqueda se mantiene la agrupación trimestral que ya usaba la portada
 	const thisYear = {
 		"1r trimestre": [],
 		"2n trimestre": [],
 		"3r trimestre": [],
 	};
-	const otherYears = [];
 	let totalResultsThisYear = 0;
-	let totalResultsOtherYears = 0;
 
 	for (const article of articles) {
 		article.period = getArticlePeriod(new Date(article.data_publicacio));
-		if (article.period === "Altre any") {
-			otherYears.push(article);
-			totalResultsOtherYears++;
-		} else if (quartersInOrder.includes(article.period)) {
+		if (article.period !== "Altre any" && quartersInOrder.includes(article.period)) {
 			thisYear[article.period].push(article);
 			totalResultsThisYear++;
 		}
 	}
-
-	// console.log(thisYear);
-	// console.log(otherYears);
-
-	// const [searchInputValue, setSearchInputValue] = useState("");
-
-	// const [selectedTags, setSelectedTags] = useState([]);
-	// const [tagInputValue, setTagInputValue] = useState("");
-
-	// const filtersApplied = false;
 
 	return (
 		<div className="index">
@@ -88,42 +66,44 @@ export default function Index() {
 				</p>
 			</div>
 			<div className="index-content">
-				{/* Cut out bc I have no time */}
-				{/*
-				<div className="index-content-search">
-					<div className="index-content-search-inputs">
-						<input
-							type="text"
-							placeholder="Cerca per titol..."
-							value={searchInputValue}
-							onChange={(e) => setSearchInputValue(e.target.value)}
-
-                            className="index-content-search-input"
-						/>
-						<input type="text" placeholder="Afegeix etiquetes..." className="index-content-search-input-tags" />
-					</div>
-					<IconButton>
-						<IconSearch />
-					</IconButton>
-					<IconButton variant="not-filled">
-						<IconNoFilter />
-					</IconButton>
-				</div>
-                */}
+				{/* antes esta zona de búsqueda estaba comentada; el get deja compartir y recargar los resultados con su url */}
+				<Form method="get" role="search" className="index-content-search">
+					<label className="visually-hidden" htmlFor="article-search">
+						Cerca articles
+					</label>
+					<input
+						id="article-search"
+						type="search"
+						name="q"
+						placeholder="Cerca per títol o contingut..."
+						defaultValue={search}
+						maxLength={100}
+					/>
+					<button type="submit">Cerca</button>
+					{search && <Link to="/">Esborra la cerca</Link>}
+				</Form>
 				<div className="index-content-articles">
 					<div className="index-content-articles-title">
-						<p className="title">Articles d'aquest any</p>
-						{/* Cut out for now */}
-						{/*
-						<p className="resultats-n">
-							{filtersApplied
-								? `Mostrant ${totalResultsThisYear} resultats`
-								: `Mostrant tots els resultats (${totalResultsThisYear})`}
+						<p className="title">
+							{search
+								? `Resultats de cerca (${articles.length})`
+								: "Articles d'aquest any"}
 						</p>
-						*/}
 					</div>
-					{
-						totalResultsThisYear > 0 ? (
+					{/* en modo búsqueda se muestran todos los años; sin búsqueda se conserva la portada agrupada por trimestres */}
+					{search ? (
+						articles.length > 0 ? (
+							<div className="articles-grid">
+								{articles.map((article) => (
+									<Card key={article.id} article={article} />
+								))}
+							</div>
+						) : (
+							<div className="no-articles-message">
+								<p>No s'han trobat articles amb aquesta cerca.</p>
+							</div>
+						)
+					) : totalResultsThisYear > 0 ? (
 							quartersInOrder.map((quarterName) => {
 								const quarterArticles = thisYear[quarterName];
 
@@ -146,22 +126,8 @@ export default function Index() {
 							<div className="no-articles-message">
 								<p>Encara no n'hi ha articles publicats aquest any!</p>
 							</div>
-						)
-					}
+						)}
 				</div>
-				{/* Also cut out */}
-				{/*
-				<div className="index-content-articles">
-					<div className="index-content-articles-title">
-						<p className="title">Articles d'altres anys</p>
-						<p className="resultats-n">
-							{filtersApplied
-								? `Mostrant ${totalResultsOtherYears} resultats`
-								: `Mostrant tots els resultats (${totalResultsOtherYears})`}
-						</p>
-					</div>
-				</div>
-                */}
 			</div>
 		</div>
 	);
